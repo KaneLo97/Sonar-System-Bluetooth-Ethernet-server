@@ -1,28 +1,22 @@
 #ifndef CNAMEDPIPESERVER_H
 #define CNAMEDPIPESERVER_H
 
-#include "bluetooth_server.h"
+#include "ethernet_server.h"
+#include "Windows.h"
+
 #include <QTimer>
 #include <QMainWindow>
 #include <QThread>
 #include <QObject>
 #include <QtCore/qobject.h>
-#include <QBluetoothAddress>
-#include <QBluetoothServiceDiscoveryAgent>
-#include <QBluetoothServer>
-#include <QBluetoothServiceInfo>
-#include <QApplication>
 
 #pragma once
-#include "Windows.h"
-
 #include <stdio.h>
 #include <iostream>
 
 #define RCV_BUFSIZE 65536
 #define RSP_BUFSIZE 2
 
-#include <QObject>
 
 class CNamedPipeServer: public QObject
 {
@@ -48,6 +42,12 @@ protected:
     DWORD DoThreadWork();
 
 private:
+    QStringList list;
+    QStringList AAlist;
+    QStringList firstList;
+    int i = 0;
+    int j = 0;
+
     QThread* thread = nullptr;
 
 };

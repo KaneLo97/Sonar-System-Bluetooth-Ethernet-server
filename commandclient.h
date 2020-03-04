@@ -4,6 +4,7 @@
 #pragma once
 
 #include "Windows.h"
+#include <QString>
 #include <stdio.h>
 
 #define BUFSIZE 2
@@ -18,17 +19,13 @@ public:
     static BYTE   chBuf[BUFSIZE];
     static BOOL   fSuccess;
     static DWORD  cbRead, cbToWrite, cbWritten, dwMode;
-    //static LPTSTR written;
     static LPTSTR lpszPipename;
 
     CommandClient(void);
     ~CommandClient(void);
 
-    //static int SendCommand(bool bWaitForReply, LPTSTR* lpBuffer, int numDataBytes, LPTSTR);
     //static int SendCommand(bool bWaitForReply, BYTE* lpBuffer, int numDataBytes);
     static int SendCommand(bool bWaitForReply, char* lpBuffer);
-
-
 
 };
 
